@@ -1,1 +1,1 @@
-web: gunicorn news.wsgi
+web: gunicorn newspaper_features.wsgi
