@@ -1,6 +1,8 @@
 from django.shortcuts import render,HttpResponse,redirect
 import newspaper
 from newspaper import Article
+import nltk
+nltk.download('punkt')
 # Create your views here.
 
 def home(request,
@@ -15,11 +17,11 @@ def scraper(request,
         name = request.POST.get("page")
         print(name)
         article = Article(name)
-        article.download()
-        article.parse()
-        article.nlp()
 
         try:
+            article.download()
+            article.parse()
+            article.nlp()
 
             keywords = article.keywords
             print(type(keywords))
@@ -39,7 +41,7 @@ def scraper(request,
             )
 
         except:
-            return HttpResponse(f"{name}{article}please enter valid url")
+            return HttpResponse("please enter valid url")
 
     return render(request,
                   "newsscraper.html",
