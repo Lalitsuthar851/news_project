@@ -39,7 +39,7 @@ def scraper(request,
             )
 
         except:
-            return HttpResponse("please enter valid url")
+            return HttpResponse(f"{name}{article}please enter valid url")
 
     return render(request,
                   "newsscraper.html",
