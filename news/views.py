@@ -15,7 +15,7 @@ def scraper(request,
         name = request.POST.get("page")
         print(name)
         article = Article(name)
-	article.download()
+        article.download()
         article.parse()
         article.nlp()
 
