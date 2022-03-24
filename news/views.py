@@ -1,7 +1,11 @@
 from django.shortcuts import render,HttpResponse,redirect
 import newspaper
+from wordcloud import WordCloud,STOPWORDS
 from newspaper import Article
 import nltk
+import shutil
+import os
+from os import path
 nltk.download('punkt')
 # Create your views here.
 
@@ -18,33 +22,62 @@ def scraper(request,
         print(name)
         article = Article(name)
 
-        try:
-            article.download()
-            article.parse()
-            article.nlp()
 
-            keywords = article.keywords
-            print(type(keywords))
-            summmary = article.summary
-            print(summmary,keywords)
-            author = article.authors
-            if author==[]:
+        article.download()
+        article.parse()
+        article.nlp()
+        text=article.text
+        title=article.title
+        keywords = article.keywords
+        print(type(keywords))
+        summmary = article.summary
+        print(summmary,keywords)
+        author = article.authors
+
+        date=article.publish_date
+        url=article.url
+
+
+
+        stopwords=STOPWORDS
+
+        wc=WordCloud(background_color="white",stopwords=stopwords,height=400,width=400)
+        wc.generate(' '.join(keywords))
+
+        wc2 = WordCloud(background_color="gray", stopwords=stopwords, height=400, width=400)
+        wc2.generate(' '.join(keywords))
+        file=wc.to_file(os.path.join('./news/static/img/wordcloud.png'))
+        file2=wc2.to_file(os.path.join('./news/static/img/wordcloud2.png'))
+
+
+
+        # if path.exists("wordcloud.png") or path.exists("wordcloud2.png"):
+        #     try:
+        #         os.remove("./news/static/img/wordcloud.png")
+        #         os.remove("./news/static/img/wordcloud2.png")
+        #     except:
+        #         shutil.move(os.path.join(os.getcwd(),"wordcloud.png"),"./news/static/img/wordcloud.png")
+        #         shutil.move(os.path.join(os.getcwd(), "wordcloud2.png"), "./news/static/img/wordcloud2.png")
+
+
+        if author==[]:
                 author=" "
 
 
-            return render(
+        return render(
                 request,
-                "data.html",
-                {"summary":summmary,
+                "New folder/index.html",
+                {"title":title,"summary":summmary,
+                 "text":text,
                  "author":author[0],
-                 "keyword":keywords},
+                 "keyword":keywords,
+                "publish_date":date,"url":url}
+
             )
 
-        except:
-            return HttpResponse("please enter valid url")
 
     return render(request,
-                  "newsscraper.html",
+                "newsscraper.html",
                   )
 
 def handler404( request,

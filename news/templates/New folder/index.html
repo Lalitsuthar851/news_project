@@ -1,0 +1,162 @@
+{% extends "newsscraper.html" %}
+
+
+
+<html>
+{% load static %}
+<head>
+	{% block title %}
+	<title>Rocket Internet by TEMPLATE STOCK</title>
+     {% endblock %}
+     {% block css %}
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'New folder/css/bootstrap.min.css'%}">
+
+	<!-- Goggle Font -->
+	<link href='https://fonts.googleapis.com/css?family=Lato:400,700,900,300' rel='stylesheet' type='text/css'>
+
+	<!-- Font Css -->
+	<link rel="stylesheet" type="text/css" href="{% static 'New folder/css/font-awesome.min.css'%}">
+
+	<!-- Custom CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'New folder/css/style.css'%}">
+
+	<!-- Animation Css -->
+	<link rel="stylesheet" href="{% static 'New folder/css/animate.css'%}">
+	<style>#more {display: none;}
+	</style>
+     {% endblock %}
+
+</head>
+<!--<body>-->
+{% block body %}
+
+
+<br>
+<br>
+<br>
+<br>
+<header>
+	<div id="homeFullScreen">
+		<div class="header-text">
+			<h1>NEWS ARTICLE</h1>
+			<div class="vertical-line"></div>
+			<p>
+				{{title}}<span id="dots">...</span><p><span id="more">{{text}}</span></p>
+
+			<button onclick="myFunction()" class="btn btn-primary" id="myBtn">Read more</button>
+			</p>
+		</div><!-- End HeaderText -->
+	</div><!-- End homeFullScreen -->
+</header><!-- End Header -->
+
+<!-- Feature -->
+
+<section class="feature">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-sm-6">
+				<div class="feature-box">
+					<h1 style="color:white; opacity:50%;"><u>AUTHORS</u></h1>
+					<p style="position:relative; left:191px; top:34px;"><i>{{author}}</i></p>
+				</div>
+			</div><!-- End col-md-6 -->
+			<div class="col-md-6 col-sm-6 nopadding">
+				<img src="{% static 'New folder/images/1.png'%}">
+			</div><!-- End col-md-6 -->
+
+			<div class="clearfix"></div><!-- End clearfix -->
+
+
+
+
+
+
+			<div class="col-md-6 col-sm-6 nopadding">
+				<img src="{% static 'New folder/images/summary1.jpg'%}">
+			</div><!-- End col-md-6 -->
+			<div class="col-md-6 col-sm-6">
+				<div class="feature-box">
+					<h1 style="color:white; opacity:50%;"><u>SUMMARY</u></h1>
+					<p><i>{{summary}}</i></p>
+				</div>
+			</div><!-- End col-md-6 -->
+
+
+
+
+
+		</div>
+	</div>
+</section>
+
+<!-- portfolio -->
+
+<section class="portfolio">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h1 class="heading" style="color:white; opacity:50%;"><u>WORD CLOUDS</u></h1>
+			</div><!-- End col-md-12 -->
+
+			<div class="col-md-4 col-sm-4">
+				<img src="{% static 'img/wordcloud.png'%}">
+			</div><!-- End col-md-4 -->
+			<div class="col-md-4 col-sm-4">
+				<img src="{% static 'img/wordcloud2.png'%}">
+			</div><!-- End col-md-4 -->
+
+		</div><!-- End row -->
+	</div><!-- End container -->
+</section>
+
+<!-- Call to Action -->
+<section class="call-top-action text-center">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h1>PUBLISHED HISTORY</h1>
+				<p>PUBLISHED DATE:{{publish_date}}
+				<br/>
+				NEWS LINK:{{url}}</p>
+
+			</div><!-- End col-md-12 -->
+		</div><!-- End row -->
+	</div><!-- End container -->
+</section>
+
+{% endblock %}
+
+
+{% block js %}
+
+<!-- Main JS -->
+<script type="text/javascript" src="{% static 'New folder/js/jquery-main.js'%}"></script>
+
+<!-- Bootstrap JS -->
+<script type="text/javascript" src="{% static 'New folder/js/bootstrap.min.js'%}"></script>
+
+<!-- Animation JS -->
+<script type="text/javascript" src="{% static 'New folder/js/wow.min.js'%}"></script>
+
+<!-- Custom JS -->
+<script type="text/javascript" src="{% static 'New folder/js/custom.js'%}"></script>
+<script>function myFunction() {
+  var dots = document.getElementById("dots");
+  var moreText = document.getElementById("more");
+  var btnText = document.getElementById("myBtn");
+
+  if (dots.style.display === "none") {
+    dots.style.display = "inline";
+    btnText.innerHTML = "Read more";
+    moreText.style.display = "none";
+  } else {
+    dots.style.display = "none";
+    btnText.innerHTML = "Read less";
+    moreText.style.display = "inline";
+  }
+}
+</script>
+{% endblock %}
+<!--</body>-->
+<!--</html>-->
