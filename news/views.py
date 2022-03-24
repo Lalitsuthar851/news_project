@@ -73,8 +73,8 @@ def scraper(request,
                  "keyword":keywords,
                 "publish_date":date,"url":url}
             )
-	except:
-	      return HttpResponse("plz enter valid url")
+        except:
+            return HttpResponse("plz enter valid url")
 
 
     return render(request,"newsscraper.html",
