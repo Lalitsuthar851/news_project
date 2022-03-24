@@ -47,7 +47,9 @@ def scraper(request,
             wc2 = WordCloud(background_color="gray", stopwords=stopwords, height=400, width=400)
             wc2.generate(' '.join(keywords))
             file=wc.to_file(os.path.join('./news/static/img/wordcloud.png'))
+            file__=wc.to_file(os.path.join('./staticfiles/img/wordcloud.png'))
             file2=wc2.to_file(os.path.join('./news/static/img/wordcloud2.png'))
+            file_2 = wc2.to_file(os.path.join('./staticfiles/img/wordcloud2.png'))
 
 
 
