@@ -47,6 +47,22 @@
 			<button onclick="myFunction()" class="btn btn-primary" id="myBtn">Read more</button>
 			</p>
 		</div><!-- End HeaderText -->
+
+
+		<a style="color:white;" href="#" data-toggle='collapse'
+        data-target="#filters,#view_filters,#hide_filters">
+      <span id='view_filters' class='collapse in'>CLICK HERE TO SEE ALL THE NOUNS</span>
+      <span id='hide_filters' class='collapse out'>CLICK HERE TO HIDE NOUNS</span>
+    </a>
+		 {% for i in nouns %}
+    <div style="color:white;" id="filters" class="collapse out">
+         {{i}}
+    </div>
+		 {% endfor %}
+
+
+
+
 	</div><!-- End homeFullScreen -->
 </header><!-- End Header -->
 
@@ -81,7 +97,6 @@
 					<p><i>{{summary}}</i></p>
 				</div>
 			</div><!-- End col-md-6 -->
-
 
 
 
@@ -157,6 +172,11 @@
   }
 }
 </script>
+<script>
+    $(document).ready(function(){
+        $('[data-toggle="popover"]').popover();
+    });
+    </script>
 {% endblock %}
 <!--</body>-->
 <!--</html>-->
