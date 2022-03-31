@@ -53,13 +53,6 @@ def scraper(request,
 
 
 
-            # if path.exists("wordcloud.png") or path.exists("wordcloud2.png"):
-            #     try:
-            #         os.remove("./news/static/img/wordcloud.png")
-            #         os.remove("./news/static/img/wordcloud2.png")
-            #     except:
-            #         shutil.move(os.path.join(os.getcwd(),"wordcloud.png"),"./news/static/img/wordcloud.png")
-            #         shutil.move(os.path.join(os.getcwd(), "wordcloud2.png"), "./news/static/img/wordcloud2.png")
 
 
             if author==[]:
@@ -68,7 +61,7 @@ def scraper(request,
 
             return render(
                     request,
-                "New folder/index.html",
+                "slider/dist/index.html",
                 {"title":title,"summary":summmary,
                  "text":text,
                  "author":author[0],
