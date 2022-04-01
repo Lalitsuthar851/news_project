@@ -1,10 +1,23 @@
 {% extends "newsscraper.html" %}
-
+ {% load static %}
   {% block css %}
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans%3A400%2C400italic%2C600%2C700%2C700italic%7COswald%3A400%2C300%7CVollkorn%3A400%2C400italic'>
- {% load static %}
+
   <link rel="stylesheet" href="{% static 'demo_css/style.css' %}">
+  <style>
+  table {
+  border-collapse: separate;
+  border-spacing: 5px 0;
+}
+     td,th {
+     color:#0f0a08;
+  border:2px solid white;
+  border-radius: 15px;
+ border-collapse: collapse;
+}
+  </style>
+
 {% endblock %}
 
 
@@ -20,7 +33,7 @@
             <div class="caption">
               <div class="title"><big style="color:#FFD200;">NEWS</big> TITLE</div>
               <div class="text">
-                <p style="color:white; font-size:2vw font-family:Copperplate Gothic Bold;">{{title}}</p>
+                <p style="color:white; font-size:2vw; font-family:Copperplate Gothic Bold;">{{title}}</p>
               </div> 
 <!--              <a href="#" class="btn">-->
 <!--                <span class="btn-inner">Learn More</span>-->
@@ -36,7 +49,7 @@
             <div class="caption">
               <div class="title"><u>SUMMARY</u></div>
               <div class="text">
-                <p style="color:white; font-size:2vh;"><b>{{summary}}</b></p>
+                <p style="color:white; font-size:2vh; font-family:Rockwell Extra Bold;"><b><i>{{summary}}</i></b></p>
                 <hr>
                 <h1><u>A<span style="color:#FFD200;">UTHOR</span></u></h1><p style="color:white; font-size:2vw;">{{author}}</p>
               </div> 
@@ -55,10 +68,31 @@
               <div class="title">WORD CLOUD</div>
               <div class="text" >
                 <img src="{% static 'img/wordcloud.png' %}">
+
               </div> 
 <!--              <a href="#" class="btn">-->
 <!--                <span class="btn-inner">Learn More</span>-->
 <!--              </a>-->
+              <br>
+              <hr>
+                             <table>
+  <tbody>
+
+    <tr>
+       <th bgcolor="silver"><b><i>KEYWORDS</i></b></th>
+     {% for key in keyword %}
+
+      <td bgcolor="#FCA311">
+     <i> {{key}}</i>
+
+      </td>
+
+       {% endfor %}
+    </tr>
+
+  </tbody>
+</table>
+              <hr>
             </div>
           </div>
           <div class="image-container">
@@ -70,7 +104,7 @@
             <div class="caption">
               <div class="title">PUBLISHED DATA</div>
               <div class="text">
-                <p style="color:white; font-size:3vh;">{{publish_date}}</p>
+                <p style="color:white; font-size:3vh;"><i>{{publish_date}}</i></p>
                 <p style="color:white; font-size:3vh;">{{url}}</p>
               </div> 
               <a href={{url}} class="btn">
@@ -97,15 +131,15 @@
           <span class="icon">4</span>
         </div>
       </div>
-      <div class="arrows">
-        <div class="arrow prev">
-          <span class="svg svg-arrow-left">
-            <svg version="1.1" id="svg4-Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="14px" height="26px" viewBox="0 0 14 26" enable-background="new 0 0 14 26" xml:space="preserve"> <path d="M13,26c-0.256,0-0.512-0.098-0.707-0.293l-12-12c-0.391-0.391-0.391-1.023,0-1.414l12-12c0.391-0.391,1.023-0.391,1.414,0s0.391,1.023,0,1.414L2.414,13l11.293,11.293c0.391,0.391,0.391,1.023,0,1.414C13.512,25.902,13.256,26,13,26z"/> </svg>
-            <span class="alt sr-only"></span>
-          </span>
-        </div>
+<!--      <div class="arrows">-->
+<!--        <div class="arrow prev">-->
+<!--          <span class="svg svg-arrow-left">-->
+<!--            <svg version="1.1" id="svg4-Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="14px" height="26px" viewBox="0 0 14 26" enable-background="new 0 0 14 26" xml:space="preserve"> <path d="M13,26c-0.256,0-0.512-0.098-0.707-0.293l-12-12c-0.391-0.391-0.391-1.023,0-1.414l12-12c0.391-0.391,1.023-0.391,1.414,0s0.391,1.023,0,1.414L2.414,13l11.293,11.293c0.391,0.391,0.391,1.023,0,1.414C13.512,25.902,13.256,26,13,26z"/> </svg>-->
+<!--            <span class="alt sr-only"></span>-->
+<!--          </span>-->
+<!--        </div>-->
         <div class="arrow next">
-          <span class="svg svg-arrow-right">
+<!--          <span class="svg svg-arrow-right">-->
             <svg version="1.1" id="svg5-Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="14px" height="26px" viewBox="0 0 14 26" enable-background="new 0 0 14 26" xml:space="preserve"> <path d="M1,0c0.256,0,0.512,0.098,0.707,0.293l12,12c0.391,0.391,0.391,1.023,0,1.414l-12,12c-0.391,0.391-1.023,0.391-1.414,0s-0.391-1.023,0-1.414L11.586,13L0.293,1.707c-0.391-0.391-0.391-1.023,0-1.414C0.488,0.098,0.744,0,1,0z"/> </svg>
             <span class="alt sr-only"></span>
           </span>
