@@ -3,23 +3,24 @@ import newspaper
 from wordcloud import WordCloud,STOPWORDS
 from newspaper import Article
 import nltk
-import shutil
 import os
+import spacy
+from django.views.decorators.clickjacking import xframe_options_exempt
 from os import path
 nltk.download('punkt')
 # Create your views here.
-
+@xframe_options_exempt
 def home(request,
          ):
     return render(request,
                   "index.html",
                   )
-
 def scraper(request,
             ):
     if request.method == "POST":
         name = request.POST.get("page")
-        print(name)
+        keywords_number=request.POST.get("quantity")
+        print(name,keywords_number)
         article = Article(name)
 
         try:
@@ -38,7 +39,6 @@ def scraper(request,
             url=article.url
 
 
-
             stopwords=STOPWORDS
 
             wc=WordCloud(background_color="white",stopwords=stopwords,height=400,width=400)
@@ -48,29 +48,42 @@ def scraper(request,
             wc2.generate(' '.join(keywords))
             file=wc.to_file(os.path.join('./news/static/img/wordcloud.png'))
             file__=wc.to_file(os.path.join('./staticfiles/img/wordcloud.png'))
+
             file2=wc2.to_file(os.path.join('./news/static/img/wordcloud2.png'))
             file_2 = wc2.to_file(os.path.join('./staticfiles/img/wordcloud2.png'))
+            nouns=[]
+
+
+            nlp = spacy.load("en_core_web_sm")
+            doc = nlp(summmary)
+
+
+        #
+        # for np in doc.noun_chunks:
+        #     nouns.append(np.text)
+
+
 
 
 
 
 
             if author==[]:
-                    author=" "
+                author=" "
 
 
             return render(
                     request,
-                "slider/dist/index.html",
+                "New folder/index2.html",
                 {"title":title,"summary":summmary,
-                 "text":text,
+                "text":text,
                  "author":author[0],
-                 "keyword":keywords,
-                "publish_date":date,"url":url}
-            )
+                 "keyword":keywords[0:int(keywords_number)],"number":keywords_number,
+                "publish_date":date,"url":url,"nouns":nouns}
+                )
         except:
             return HttpResponse("plz enter valid url")
-
+    #
 
     return render(request,"newsscraper.html",
                   )
@@ -84,3 +97,6 @@ def handler404( request,
 def handler500(request,
                ):
     return redirect("home")
+
+def demo(request,link):
+    return redirect(link)

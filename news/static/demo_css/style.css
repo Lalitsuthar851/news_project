@@ -32,7 +32,7 @@ body {
   transition: height 0.2s ease, top 0.2s ease, opacity 0s linear 0.2s;
 }
 .btn::after {
-  transition: border 0.1s linear 0.05s;
+  transition: border 0.05s linear 0.05s;
 }
 .btn .btn-inner {
   position: relative;
@@ -40,7 +40,7 @@ body {
 }
 .btn:hover {
   color: #373737;
-  transition: color 0.1s linear 0s;
+  transition: color 0.05s linear 0s;
 }
 .btn:hover::before {
   top: 0;
