@@ -23,7 +23,7 @@ def scraper(request,
         print(name,keywords_number)
         article = Article(name)
 
-        if True:
+        try:
             article.download()
             article.parse()
             article.nlp()
@@ -54,8 +54,8 @@ def scraper(request,
             nouns=[]
 
 
-            nlp = spacy.load("en_core_web_sm")
-            doc = nlp(summmary)
+
+            # doc = nlp(summmary)
 
 
         #
@@ -81,8 +81,8 @@ def scraper(request,
                  "keyword":keywords[0:int(keywords_number)],"number":keywords_number,
                 "publish_date":date,"url":url,"nouns":nouns}
                 )
-        # except:
-        #     return HttpResponse("plz enter valid url")
+        except:
+            return HttpResponse("plz enter valid url")
 
 
     return render(request,"newsscraper.html",
