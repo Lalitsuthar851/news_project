@@ -18,8 +18,8 @@
   --dark: hsl(var(--hue), 25%, 10%);
   --grey: hsl(0, 0%, 50%);
 
-  width: 310px;
-  height: 500px;
+  width: 320px;
+  height: 600px;
   margin: 40px;
 
   -webkit-perspective: 1000px;
