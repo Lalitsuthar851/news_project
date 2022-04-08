@@ -4,14 +4,17 @@ from wordcloud import WordCloud,STOPWORDS
 from newspaper import Article
 import nltk
 import os
+
 from os import path
 nltk.download('punkt')
 # Create your views here.
+
 def home(request,
          ):
     return render(request,
                   "index.html",
                   )
+
 def scraper(request,
             ):
     if request.method == "POST":
@@ -20,7 +23,7 @@ def scraper(request,
         print(name,keywords_number)
         article = Article(name)
 
-        try:
+        if True:
             article.download()
             article.parse()
             article.nlp()
@@ -78,9 +81,9 @@ def scraper(request,
                  "keyword":keywords[0:int(keywords_number)],"number":keywords_number,
                 "publish_date":date,"url":url,"nouns":nouns}
                 )
-        except:
-            return HttpResponse("plz enter valid url")
-   
+        # except:
+        #     return HttpResponse("plz enter valid url")
+
 
     return render(request,"newsscraper.html",
                   )
