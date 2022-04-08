@@ -4,12 +4,9 @@ from wordcloud import WordCloud,STOPWORDS
 from newspaper import Article
 import nltk
 import os
-import spacy
-from django.views.decorators.clickjacking import xframe_options_exempt
 from os import path
 nltk.download('punkt')
 # Create your views here.
-@xframe_options_exempt
 def home(request,
          ):
     return render(request,
@@ -83,7 +80,7 @@ def scraper(request,
                 )
         except:
             return HttpResponse("plz enter valid url")
-    #
+   
 
     return render(request,"newsscraper.html",
                   )
