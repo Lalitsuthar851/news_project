@@ -18,7 +18,7 @@
   --dark: hsl(var(--hue), 25%, 10%);
   --grey: hsl(0, 0%, 50%);
 
-  width: 320px;
+  width: 310px;
   height: 600px;
   margin: 40px;
 
@@ -27,24 +27,6 @@
           perspective: 1000px;
 }
 
-/* .flip-card */
-.flip-card {
-  width: inherit;
-  height: inherit;
-
-  position: relative;
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
-  -webkit-transition: .6s .1s;
-  transition: .6s .1s;
-}
-
-/* hover and focus-within states */
-.flip-card-container:hover .flip-card,
-.flip-card-container:focus-within .flip-card {
-  -webkit-transform: rotateY(180deg);
-          transform: rotateY(180deg);
-}
 
 /* .card-... */
 .card-front,

@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-4vc@!gr2#_6(1(ua$!2$3yt4h7zerc=&a)&*93!g(4pvs+rs!e
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['django-testing-deploy.herokuapp.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = [ ]
 
 
 # Application definition
@@ -49,6 +49,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 ROOT_URLCONF = 'newspaper_features.urls'
 
@@ -127,3 +129,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# X_FRAME_OPTIONS = 'ALLOW-FROM https://www.cnbc.com/'

@@ -917,17 +917,3 @@ footer .connect-us ul li a:hover {
 	}
 
 }
-
-@media (max-width: 385px){
-
-	footer .location ul li {
-		display: block;
-	}
-
-	footer .location ul li:first-child {
-		margin-right: 0px;
-		padding-right: 0px;
-		border-right: none;
-	}
-
-}
