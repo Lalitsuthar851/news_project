@@ -1,17 +1,17 @@
 {% extends "newsscraper.html" %}
 <html lang="en">
 <head>
-{% load static %}
+    {% load static %}
     <meta charset="UTF-8">
     <title>Title</title>
-  {% block css %}
+    {% block css %}
     <style>
 
         .flex-container1{
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 10px 25px 0 rgba(0, 0, 0, 0.19);
-        background-image:url("https://wallpapercave.com/wp/wp3191655.jpg");
-        margin-top:40px;
-        border-radius:5px;
+        background:#ffa294;
+        margin-top:5px;
+        border-radius:8px;
         display:flex;
         flex-direction:row;
         align-item:center;
@@ -22,15 +22,15 @@
         }
          .flex-container2{
 
-         background-image:url("https://cdn.pixabay.com/photo/2016/06/08/16/30/texture-1444067_960_720.jpg");
+         background:#bfd8ff;
         display:flex;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 10px 25px 0 rgba(0, 0, 0, 0.19);
         flex-direction:row;
         align-item:center;
         justify-content:center
         width:100%;
-        margin-top:70px;
-        border-radius:5px;
+        margin-top:22px;
+        border-radius:8px;
 
         }
         .article{
@@ -40,9 +40,9 @@
         background-image:url("https://wallpaperaccess.com/full/340434.png");
 
         overflow-y:scroll;
-       width:32vw;
-       height:60vh;
-       margin-top:20px;
+       width:34vw;
+       height:62vh;
+       margin-top:22px;
        margin-bottom:20px;
        padding:5px;
        padding-right:14px;
@@ -51,27 +51,27 @@
         }
     .wordcloud{
      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 10px 25px 0 rgba(0, 0, 0, 0.19);
-     width:22vw;
-       height:45vh;
+     width:28vw;
+       height:60vh;
 
     }
 #wc{
-margin-top:76px;
-   width:30vw;
-       height:45vh;
+margin-top:30px;
+   width:33vw;
+       height:60vh;
 
 }
 
 .flex-container3{
-margin-top:70px;
+margin-top:16px;
 display:flex;
 flex-direction:row;
 justify-content:space-between;
- box-shadow: 12px 13px white;
- background-image:url("https://wallpaper.dog/large/10717704.jpg");
+ background-image:url("https://cdn.mwallpapers.com/photos/celebrities/colors/full-hd-wallpaper-solid-color-wallpaper-solid-color-wallpaper-android-iphone-hd-wallpaper-background-downloadhd-wallpapers-desktop-background-android-iphone-1080p-4k-fnpj4.jpg");
 width:100%;
 border-radius:5px;
-height:88vh;
+<!--height:88vh;-->
+
 margin-bottom:30px;
 }
 #head{
@@ -86,7 +86,7 @@ font-family:'Righteous', cursive;
 
 }
 #para{
-font-size:22px;
+font-size:27px;
 font-family: 'Vollkorn', serif;
 color:black;
 
@@ -94,13 +94,15 @@ color:black;
 
 
 
+
     </style>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital@0;1&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital@1&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@1,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'data.css' %}">
 
 
@@ -113,8 +115,8 @@ color:black;
 
     <div class="article">
 
-      <h1 id="head"><i>ARTICLE</i></h1>
-      <p id="para">{{text}}</p>
+        <h1 id="head"><i>ARTICLE</i></h1>
+        <p id="para">{{text}}</p>
     </div>
 
     <div id="wc">
@@ -123,60 +125,57 @@ color:black;
 
 </div>
 <div class="flex-container2">
-<div id="summary">
+    <div id="summary">
 
-    <h1 align="center" style="font-family:font-family: 'Source Code Pro', monospace;  background: linear-gradient(to right, #f32170,
+        <h1 align="center" style="font-family:font-family: 'Source Code Pro', monospace;  background: linear-gradient(to right, #f32170,
                     #ff6b08, #cf23cf, #eedd44);
             -webkit-text-fill-color: transparent;
             -webkit-background-clip: text;">SUMMARY</h1>
-    <p style="font-family: 'PT Sans', sans-serif; color:black; font-size:20px;">{{summary}}</p>
+        <p style="font-family: 'PT Sans', sans-serif; color:black; font-size:19px;">{{summary}}</p>
     </div>
 
 </div>
 <div class="flex-container3">
 
 
+    <!--      <figure>-->
+    <!--        <div class="img-bg"></div>-->
+    <!--        <img src="https://images.unsplash.com/photo-1486162928267-e6274cb3106f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="Brohm Lake">-->
+    <!--        <figcaption>KEYWORDS</figcaption>-->
+    <!--    </figure>-->
+
+    <table>
+        <tr  style="overflow-x:scroll;">
+
+            <td style="font-size:25px; border:4px solid black; border-radius:10px; background:#e52165;"><i>KEYWORDS:</i>
+            </td>
+
+            {% for i in keyword %}
+            <td style="font-size:20px; font-family:'Josefin Sans',sans-serif; background:pink;"><i>{{i}}<b>,</b></i>
+            </td>
 
 
-
-    <div class="flip-card-container" style="--hue: 220; padding-top:2px;">
-  <div class="flip-card">
-
-    <div class="card-front" style="box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 10px 25px 0 rgba(0, 0, 0, 0.19);">
-      <figure>
-        <div class="img-bg"></div>
-        <img src="https://images.unsplash.com/photo-1486162928267-e6274cb3106f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="Brohm Lake">
-        <figcaption>KEYWORDS</figcaption>
-      </figure>
-
-      <ul>
-           {% for i in keyword %}
-        <li><i>{{i}}</i></li>
-
-     {% endfor %}
+            {% endfor %}
 
 
-      </ul>
-    </div>
+        </tr>
+
+    </table>
 
 
+    <!--       <div style="margin-top:220px; margin-right:25px; border:3px solid black; height:20vh;">-->
+    <!--            <h2 style=" color:white;">-->
+    <!--                PUBLISHED DATE</h2>-->
+    <!--               <h2>{{publish_date}}</h2>-->
+    <!--    <div  style="color:white; margin-left:48px; border:3px solid black; border-radius:15px; width:250px;">-->
+    <!--            <a><b>CLICK HERE TO VISIT NEWS WEBSITE</b></a>-->
+    <!--            </div>-->
 
-  </div>
-
-</div>
-       <div style="margin-top:220px; margin-right:25px; border:3px solid black; height:20vh;">
-            <h2 style=" color:white;">
-                PUBLISHED DATE</h2>
-               <h2>{{publish_date}}</h2>
-    <div  style="color:white; margin-left:48px; border:3px solid black; border-radius:15px; width:250px;">
-            <a><b>CLICK HERE TO VISIT NEWS WEBSITE</b></a>
-            </div>
-
-            </div>
+    <!--            </div>-->
 
 </div>
 
-    {% endblock %}
+{% endblock %}
 
 
 </html>
